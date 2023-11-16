@@ -34,3 +34,6 @@ The above environment configuration is built based on our server. It is worth no
 
 ![4a10a2750eb88a56ad7f4e6dec118c6](https://github.com/liuqichentrea/MFDTA/assets/87010868/1ae845e3-bce6-464c-9298-f05760480f1a)
 
+![image](https://github.com/liuqichentrea/MFDTA/assets/87010868/f057951a-f7ac-4ca1-9756-2eeb9b40f9de)
+
+

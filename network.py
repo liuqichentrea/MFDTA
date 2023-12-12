@@ -12,7 +12,7 @@ class FGM():
         self.backup = {}
 
     def attack(self, epsilon=0.01, emb_name='encoder.embedding'):
-        # emb_name这个参数要换成你模型中embedding的参数名
+        # emb_name This parameter should be replaced by the embedded parameter name in your model
         for name, param in self.model.named_parameters():
             if param.requires_grad and emb_name in name:
                 self.backup[name] = param.data.clone()
@@ -22,7 +22,7 @@ class FGM():
                     param.data.add_(r_at)
 
     def restore(self, emb_name='encoder.embedding'):
-        # emb_name这个参数要换成你模型中embedding的参数名
+        # emb_name This parameter should be replaced by the embedded parameter name in your model
         for name, param in self.model.named_parameters():
             if param.requires_grad and emb_name in name:
                 assert name in self.backup
@@ -176,7 +176,7 @@ class TransformerDTA(nn.Module):
         #part3
         clip_x = self.rnn_model(feat_clip)
 
-        #融合p1+p2+p3
+        #Fusion p1+p2+p3
         # embedding = torch.cat([
         #     drug_atom_x,
         #     prot_atom_x,
@@ -184,7 +184,7 @@ class TransformerDTA(nn.Module):
         #     clip_x
         # ], axis=-1)
 
-        #基于注意力机制融合p1+p2+p3
+        #Fusion P1+P2+P3 based on attention mechanism
         embedding = self.atten(
             drug_atom_x,
             prot_atom_x,

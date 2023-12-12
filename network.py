@@ -54,7 +54,7 @@ class CrossAttentionFusion(nn.Module):
         super(CrossAttentionFusion, self).__init__()
         self.feature_size = feature_size
 
-        # 定义权重参数
+        # Define weight parameters
         self.weight1 = nn.Linear(feature_size, 1)
         self.weight2 = nn.Linear(feature_size, 1)
         self.weight3 = nn.Linear(feature_size, 1)
@@ -62,13 +62,13 @@ class CrossAttentionFusion(nn.Module):
 
 
     def forward(self, feature1, feature2, feature3, feature4):
-        # 计算注意力权重
+        # Calculate attention weight
         attention1 = self.weight1(feature1)
         attention2 = self.weight2(feature2)
         attention3 = self.weight3(feature3)
         attention4 = self.weight4(feature4)
 
-        # 特征加权融合
+        # Feature weighted fusion
         fused_feature = torch.cat([attention1 * feature1,
                                    attention2 * feature2,
                                    attention3 * feature3,

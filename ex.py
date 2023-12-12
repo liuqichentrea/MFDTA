@@ -231,7 +231,7 @@ model = TransformerDTA(
 all_drug = []
 all_protein = []
 all_Y = []
-data_file = '/home/b519/lqc/MGDTA-main/datasets/davis-uniq-data.csv'
+data_file = '/home/b519/lqc/MFDTA/datasets/davis-uniq-data.csv'
 threshold = 7.0
 def get_k(y_obs, y_pred):
     y_obs = np.array(y_obs)

@@ -154,7 +154,7 @@ def run_grid_cv_4_model(lr, n_layer, n_head, d_model):
         test_loader = DataLoader(test_ds, batch_size=BATCH_SIZE, shuffle=True)
         valid_loader = DataLoader(valid_ds, batch_size=BATCH_SIZE, shuffle=True)
 
-        #paer1 模型定义
+        #paer1 Model Definition
         prot_atom_transformer = GenearalTransformer(MODEL_TYPE, VOCAB_SIZE_prot_atom, prot_len_atom, D_MODEL, N_HEADS,
                                                     N_LAYERS, device)
         prot_token_transformer = GenearalTransformer(MODEL_TYPE, VOCAB_SIZE_prot_token, prot_len_token, D_MODEL,
@@ -164,10 +164,10 @@ def run_grid_cv_4_model(lr, n_layer, n_head, d_model):
         prot_atom_transformer = prot_atom_transformer.to(device)
         prot_token_transformer = prot_token_transformer.to(device)
 
-        #part2模型定义
+        #part2 Model Definition
         drug_graphDTA = GINConvNet().to(device)
 
-        #part3模型定义
+        #part3 Model Definition
         rnn_model = DeepLSTM(input_size=78, hidden_size=128, output_size=384, num_layers=1)
 
 
@@ -241,7 +241,7 @@ neg_num = np.sum(Y_s<=threshold)
 miny = Y_s.min()
 maxy = Y_s.max()
 print(f'min_y : {miny}, max_y: {maxy}')
-print(f'负样本数量: {neg_num}, 正样本数量: {pos_num}')
+print(f'Number of negative samples: {neg_num}, Number of positive samples: {pos_num}')
 
 kf = KFold(n_splits=10, shuffle=True)
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

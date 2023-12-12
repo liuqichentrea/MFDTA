@@ -8,7 +8,7 @@ from tqdm import tqdm
 import warnings
 import torch.nn.functional as F
 
-# 忽略警告
+# Ignore warnings
 warnings.filterwarnings("ignore")
 
 
@@ -332,7 +332,7 @@ class CustomGraphDataset(Dataset):
         return len(self.data_list)
 
     def get(self, idx):
-        # 根据索引 idx，返回一个 `torch_geometric.data.Data` 对象，表示一个图形
+        # Return a `torch according to the index idx_ Geometric.data.data` object, representing a graph
         return Data(x=torch.tensor(self.data_list[idx].x, dtype=torch.float),\
                     edge_index=torch.tensor(self.data_list[idx].edge_index,dtype=torch.long)),\
                     torch.tensor(self.data_list[idx].target,dtype=torch.long),\
